@@ -11,9 +11,11 @@ import java.util.Scanner;
 public class CalculoMedia {
 
 	
-	public static void main(String[] args) {
 	
+	public static void main(String[] args) {
+		
 		double[] numeros = new double[5];
+		String[] numbers = new String[numeros.length];
 		double soma = 0;
 		int i = 0;
 		Scanner scan = new Scanner(System.in);
@@ -21,21 +23,25 @@ public class CalculoMedia {
 			
 		do {
 			
+			System.out.printf("Digite o %d° número:\n", i+1);
+			numbers[i] = scan.nextLine();
 			
 			try {
 				
-				System.out.printf("Digite o %d° número:\n", i+1);
-				numeros[i] = scan.nextDouble();
+				numeros[i] = Double.parseDouble(numbers[i]);
+				soma += numeros[i];	
+				i++;
 				
-			} catch(InputMismatchException e) {
 				
-				System.out.println("Input inválido, digite novamente!!!");
-				i--;
-				break;
+			} catch(Exception e) {
+				
+				
+				
+				System.out.println("\nInput inválido, digite apenas números!!!\n");
+
+				
 				
 			}
-			soma += numeros[i];
-			i++;
 			
 			
 			
